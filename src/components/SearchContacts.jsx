@@ -1,13 +1,17 @@
 import React, { Component } from "react"
-
-class Contact extends Component {
+import "../styles/search_contacts.css"
+class SearchContacts extends Component {
   render() {
     return (
       <div>
-        <label for="contacts">Search</label>
-        <input name="contacts" type="text" />
+        <label htlmfor="contacts">Search</label>
+        <input
+          name="contacts"
+          type="text"
+          onChange={e => this.props.getContacts(`?name=${e.target.value}`)}
+        />
       </div>
     )
   }
 }
-export default Contact
+export default SearchContacts

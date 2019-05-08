@@ -1,0 +1,12 @@
+label {
+  padding-right: 20px;
+  font-weight: bold;
+  font-size: 24px;
+}
+input {
+  font-size: 24px;
+}
+div {
+  padding-bottom: 25px;
+  padding-top: 25px;
+}

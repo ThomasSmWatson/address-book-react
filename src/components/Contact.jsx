@@ -8,7 +8,7 @@ class Contact extends Component {
     } = this.props
     const emailHref = `mailto:${email}`
     return (
-      <tr>
+      <tr key={id}>
         <td>{name}</td>
         <td>{phone}</td>
         <td>
