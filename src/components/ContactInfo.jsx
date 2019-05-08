@@ -8,10 +8,12 @@ class ContactInfo extends Component {
     phone: this.props.contact.phone
   }
   render() {
+    const { name, email, phone } = this.state
+    const { onCloseContactInfo, updateContactDetails, contact } = this.props
     return (
       <div id="contactinfo">
         <h1 align="center">Contact Information</h1>
-        <button onClick={this.props.onCloseContactInfo}>
+        <button onClick={onCloseContactInfo}>
           Close contact information view
         </button>
         <div>
@@ -20,7 +22,7 @@ class ContactInfo extends Component {
           <input
             name="name"
             type="text"
-            value={this.state.name}
+            value={name}
             onChange={e => this.setState({ name: e.target.value })}
           />
         </div>
@@ -30,7 +32,7 @@ class ContactInfo extends Component {
           <input
             name="email"
             type="text"
-            value={this.state.email}
+            value={email}
             onChange={e => this.setState({ email: e.target.value })}
           />
         </div>
@@ -40,15 +42,11 @@ class ContactInfo extends Component {
           <input
             name="phone number"
             type="text"
-            value={this.state.phone}
+            value={phone}
             onChange={e => this.setState({ phone: e.target.value })}
           />
         </div>
-        <button
-          onClick={e =>
-            this.props.updateContactDetails(this.props.contact.id, this.state)
-          }
-        >
+        <button onClick={e => updateContactDetails(contact.id, this.state)}>
           Update Contact
         </button>
       </div>

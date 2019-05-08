@@ -7,6 +7,7 @@ class AddContact extends Component {
     phone: null
   }
   render() {
+    const { addContact } = this.props
     return (
       <div id="addcontact">
         <div>
@@ -36,9 +37,7 @@ class AddContact extends Component {
             onChange={e => this.setState({ phone: e.target.value })}
           />
         </div>
-        <button onClick={e => this.props.addContact(this.state)}>
-          Add Contact
-        </button>
+        <button onClick={e => addContact(this.state)}>Add Contact</button>
       </div>
     )
   }

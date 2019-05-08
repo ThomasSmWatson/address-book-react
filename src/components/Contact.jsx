@@ -4,12 +4,13 @@ import "../styles/contact.css"
 class Contact extends Component {
   render() {
     const {
-      contact: { name, phone, email, id }
+      contact: { name, phone, email, id },
+      onClickContactName
     } = this.props
     const emailHref = `mailto:${email}`
     return (
       <tr key={id}>
-        <td onClick={this.props.onClickContactName}>{name}</td>
+        <td onClick={onClickContactName}>{name}</td>
         <td>{phone}</td>
         <td>
           <a href={emailHref}>Email</a>
