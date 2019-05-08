@@ -37,7 +37,6 @@ class App extends Component {
 
   updateContactDetails = async (id, { name, email, phone }) => {
     const contact = { name, email, phone }
-    console.log(id, contact)
     await axios.put(`${baseUrl}/contact/${id}`, contact)
     await this.getContacts()
     this.setState({ selectedContactInformation: { id, name, email, phone } })
