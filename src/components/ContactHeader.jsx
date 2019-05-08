@@ -10,7 +10,9 @@ class ContactHeader extends Component {
           type="text"
           onChange={e => this.props.getContacts(`?name=${e.target.value}`)}
         />
-        <button onClick={() => console.log("hi")}>Add Contact</button>
+        <button onClick={this.props.displayAddContactContainer}>
+          Add Contact
+        </button>
       </div>
     )
   }

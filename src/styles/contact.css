@@ -3,3 +3,8 @@ td {
   padding: 2px;
   font-size: 20px;
 }
+th {
+  background-color: grey;
+  padding: 5px;
+  font-size: 24px;
+}
