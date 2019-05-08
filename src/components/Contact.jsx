@@ -6,14 +6,15 @@ class Contact extends Component {
     const {
       contact: { name, phone, email, id }
     } = this.props
-    console.log(name, phone)
+    const emailHref = `mailto:${email}`
     return (
-      <div>
+      <tr>
         <td>{name}</td>
         <td>{phone}</td>
-        <td>{email}</td>
-        <td>{id}</td>
-      </div>
+        <td>
+          <a href={emailHref}>Email</a>
+        </td>
+      </tr>
     )
   }
 }

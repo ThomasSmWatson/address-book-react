@@ -19,9 +19,17 @@ class App extends Component {
     this.getContacts()
   }
   render() {
-    const contacts =
-      this.state.contacts &&
-      this.state.contacts.map(c => <Contact contact={c} />)
+    const contacts = (
+      <table>
+        <th>name</th>
+        <th>number</th>
+        <th>email</th>
+        <tbody>
+          {this.state.contacts &&
+            this.state.contacts.map(c => <Contact contact={c} />)}
+        </tbody>
+      </table>
+    )
     return <div className="App">{contacts}</div>
   }
 }
