@@ -3,7 +3,7 @@ import axios from "axios"
 import logo from "./logo.svg"
 import "./App.css"
 
-import Contact from "./components/Contact.jsx"
+import ContactList from "./components/ContactList.jsx"
 import SearchContacts from "./components/SearchContacts.jsx"
 const baseUrl = "http://localhost:8080" // for ease of use in this case
 
@@ -23,24 +23,10 @@ class App extends Component {
     this.getContacts()
   }
   render() {
-    const contacts = (
-      <table>
-        <tbody>
-          <tr>
-            <th>name</th>
-            <th>number</th>
-            <th>email</th>
-          </tr>
-          {this.state.contacts
-            ? this.state.contacts.map(c => <Contact contact={c} />)
-            : "Loading..."}
-        </tbody>
-      </table>
-    )
     return (
       <div className="App">
         <SearchContacts getContacts={this.getContacts} />
-        {contacts}
+        <ContactList contacts={this.state.contacts} />
       </div>
     )
   }
