@@ -7,8 +7,6 @@ class ContactTable extends Component {
         <tbody>
           <tr>
             <th>name</th>
-            <th>number</th>
-            <th>email</th>
           </tr>
           {this.props.contacts
             ? this.props.contacts.map(c => <Contact contact={c} />)

@@ -25,7 +25,6 @@ class App extends Component {
     this.setState({ displayAddContactForm: true })
   }
   addContact = async contact => {
-    console.log(contact)
     await axios.post(`${baseUrl}/contact`, contact)
     await this.getContacts()
     this.setState({ displayAddContactForm: false })
