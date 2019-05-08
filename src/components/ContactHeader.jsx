@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-import "../styles/search_contacts.css"
-class SearchContacts extends Component {
+import "../styles/contact_header.css"
+class ContactHeader extends Component {
   render() {
     return (
       <div>
@@ -10,8 +10,9 @@ class SearchContacts extends Component {
           type="text"
           onChange={e => this.props.getContacts(`?name=${e.target.value}`)}
         />
+        <button onClick={() => console.log("hi")}>Add Contact</button>
       </div>
     )
   }
 }
-export default SearchContacts
+export default ContactHeader

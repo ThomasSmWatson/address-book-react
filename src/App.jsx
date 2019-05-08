@@ -4,7 +4,7 @@ import logo from "./logo.svg"
 import "./App.css"
 
 import ContactList from "./components/ContactList.jsx"
-import SearchContacts from "./components/SearchContacts.jsx"
+import SearchContacts from "./components/ContactHeader.jsx"
 const baseUrl = "http://localhost:8080" // for ease of use in this case
 
 class App extends Component {

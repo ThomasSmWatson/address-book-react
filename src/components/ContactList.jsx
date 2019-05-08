@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import "../styles/search_contacts.css"
 import Contact from "./Contact.jsx"
 class ContactTable extends Component {
   render() {
