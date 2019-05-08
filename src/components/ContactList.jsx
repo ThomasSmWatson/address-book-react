@@ -9,7 +9,12 @@ class ContactTable extends Component {
             <th>name</th>
           </tr>
           {this.props.contacts
-            ? this.props.contacts.map(c => <Contact contact={c} />)
+            ? this.props.contacts.map(c => (
+                <Contact
+                  contact={c}
+                  onClickContactName={() => this.props.onClickContactName(c)}
+                />
+              ))
             : "Loading..."}
         </tbody>
       </table>

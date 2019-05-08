@@ -3,13 +3,17 @@ import "../styles/update_contact.css"
 
 class ContactInfo extends Component {
   state = {
-    name: this.props.name,
-    email: this.props.email,
-    phone: this.props.phone
+    name: this.props.contact.name,
+    email: this.props.contact.email,
+    phone: this.props.contact.phone
   }
   render() {
     return (
       <div id="contactinfo">
+        <h1 align="center">Contact Information</h1>
+        <button onClick={this.props.onCloseContactInfo}>
+          Close contact information view
+        </button>
         <div>
           <label htmlFor="name">Name</label>
           <br />
@@ -41,7 +45,9 @@ class ContactInfo extends Component {
           />
         </div>
         <button
-          onClick={e => this.props.updateContact(this.props.id, this.state)}
+          onClick={e =>
+            this.props.updateContactDetails(this.props.contact.id, this.state)
+          }
         >
           Update Contact
         </button>

@@ -15,6 +15,7 @@ class App extends Component {
     displayAddContactForm: false,
     selectedContactInformation: null
   }
+
   getContacts = async queryString => {
     this.setState({ contacts: null })
     const result = await axios.get(
@@ -23,34 +24,66 @@ class App extends Component {
     const contacts = result.data.contacts
     this.setState({ contacts })
   }
+
   displayAddContactContainer = () => {
     this.setState({ displayAddContactForm: true })
   }
+
   addContact = async contact => {
     await axios.post(`${baseUrl}/contact`, contact)
     await this.getContacts()
     this.setState({ displayAddContactForm: false })
   }
+
   updateContactDetails = async (id, { name, email, phone }) => {
     const contact = { name, email, phone }
-    await axios.update(`${baseUrl}/contact/${id}`, contact)
+    console.log(id, contact)
+    await axios.put(`${baseUrl}/contact/${id}`, contact)
+    await this.getContacts()
+    this.setState({ selectedContactInformation: { id, name, email, phone } })
   }
+
+  onCloseContactInfo = () => this.setState({ selectedContactInformation: null })
+
+  onClickContactName = contact => {
+    console.log(contact)
+    this.setState({ selectedContactInformation: contact })
+  }
+
   componentDidMount() {
     this.getContacts()
   }
   render() {
+    const {
+      displayAddContactForm,
+      selectedContactInformation,
+      contacts
+    } = this.state
+    const {
+      getContacts,
+      displayAddContactContainer,
+      addContact,
+      updateContactDetails,
+      onCloseContactInfo,
+      onClickContactName
+    } = this
     return (
       <div className="App">
         <ContactHeader
-          getContacts={this.getContacts}
-          displayAddContactContainer={this.displayAddContactContainer}
+          getContacts={getContacts}
+          displayAddContactContainer={displayAddContactContainer}
         />
-        <ContactList contacts={this.state.contacts} />
-        {this.state.displayAddContactForm && (
-          <AddContact addContact={this.addContact} />
-        )}
-        {this.state.selectedContactInformation && (
-          <ContactInfo updateContactDetails={this.updateContactDetails} />
+        <ContactList
+          contacts={contacts}
+          onClickContactName={onClickContactName}
+        />
+        {displayAddContactForm && <AddContact addContact={addContact} />}
+        {selectedContactInformation && (
+          <ContactInfo
+            updateContactDetails={updateContactDetails}
+            contact={selectedContactInformation}
+            onCloseContactInfo={onCloseContactInfo}
+          />
         )}
       </div>
     )

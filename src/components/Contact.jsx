@@ -9,7 +9,7 @@ class Contact extends Component {
     const emailHref = `mailto:${email}`
     return (
       <tr key={id}>
-        <td>{name}</td>
+        <td onClick={this.props.onClickContactName}>{name}</td>
         <td>{phone}</td>
         <td>
           <a href={emailHref}>Email</a>
